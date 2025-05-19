@@ -61,3 +61,43 @@ const productNames = transformProducts(inventory.products, ({ name }) => name);
 console.log(productNames);
 
 console.log(slugify("  New Product Launch!  ")); // "new-product-launch!"
+
+// === Task 4: Real-World JavaScript Patterns ===
+const user = {
+  id: 101,
+  firstName: "Alex",
+  lastName: "Johnson",
+  email: "alex@example.com",
+  role: "admin",
+  preferences: {
+    theme: "dark",
+    notifications: true
+  }
+};
+
+const { firstName, lastName, preferences: { theme }, ...rest } = user;
+console.log(`${firstName} ${lastName} prefers the ${theme} theme.`);
+// Outputs: Alex Johnson prefers the dark theme.
+
+const isLoggedIn = true;
+const welcomeMsg = isLoggedIn ? "Welcome back!" : "Please log in.";
+console.log(welcomeMsg); // "Welcome back!"
+
+const greetUser = name => `Hello, ${name}!`;
+console.log(greetUser("Chris")); // "Hello, Chris!"
+
+const users = [
+  { id: 1, name: "Amy", status: "active" },
+  { id: 2, name: "Ben", status: "inactive" },
+  { id: 3, name: "Cara", status: "active" }
+];
+
+const activeUsers = users.filter(user => user.status === "active");
+const userNames = activeUsers.map(user => user.name);
+
+console.log(userNames); // ["Amy", "Cara"]
+
+console.log("Fetching data...");
+setTimeout(() => {
+  console.log("Data loaded!");
+}, 2000); // Waits 2 seconds before displaying
